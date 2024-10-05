@@ -21,7 +21,8 @@ async def start():
 def sb_start():
     with SB(test=True, uc=True, xvfb=True, port=str(random.randint(0, 9999))) as sb:
         sb.uc_open_with_reconnect("https://google.com")
-        sb.wait(30)
+        sb.wait(5)
+        sb.save_screenshot(name=f"{random.randint(0, 1000)}.png")
 
 
 asyncio.run(main())
